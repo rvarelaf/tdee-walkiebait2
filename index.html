@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walkiebait Calorie Planner</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #0B3D2E; color: #E6E6E6; }
+    .card { background-color: #14532D; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; }
+    .accent { color: #A3E635; font-weight: bold; }
+    .warning { color: #F87171; font-weight: bold; }
+    .success { color: #22C55E; font-weight: bold; }
+  </style>
+</head>
+<body class="p-4">
+  <header class="flex flex-col md:flex-row justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Walkiebait Calorie Planner</h1>
+    <div class="flex gap-4 mt-4 md:mt-0">
+      <select id="languageToggle" class="bg-green-800 text-white p-1 rounded">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
+      <select id="unitToggle" class="bg-green-800 text-white p-1 rounded">
+        <option value="imperial">Imperial</option>
+        <option value="metric">Metric</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto">
+    <div class="card">
+      <h2 class="text-xl font-semibold mb-2" data-i18n="inputs">Enter Your Information</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label data-i18n="gender">Gender</label>
+          <select id="gender" class="w-full p-1 rounded bg-green-700">
+            <option value="male" data-i18n="male">Male</option>
+            <option value="female" data-i18n="female">Female</option>
+          </select>
+        </div>
+        <div>
+          <label data-i18n="age">Age</label>
+          <input type="number" id="age" min="10" max="120" class="w-full p-1 rounded bg-green-700">
+        </div>
+        <div>
+          <label data-i18n="height">Height</label>
+          <div class="flex gap-2" id="heightInputs">
+            <input type="number" id="heightFt" placeholder="ft" class="w-1/2 p-1 rounded bg-green-700">
+            <input type="number" id="heightIn" placeholder="in" class="w-1/2 p-1 rounded bg-green-700">
+          </div>
+        </div>
+        <div>
+          <label data-i18n="weight">Current Weight</label>
+          <input type="number" id="weight" min="50" max="1000" class="w-full p-1 rounded bg-green-700">
+        </div>
+        <div>
+          <label data-i18n="activity">Activity Level</label>
+          <select id="activity" class="w-full p-1 rounded bg-green-700">
+            <option value="1.2" data-i18n="sedentary">Sedentary</option>
+            <option value="1.375" data-i18n="light">Lightly Active</option>
+            <option value="1.55" data-i18n="moderate">Moderately Active</option>
+            <option value="1.725" data-i18n="active">Active</option>
+            <option value="1.9" data-i18n="extra">Extra Active</option>
+          </select>
+        </div>
+        <div>
+          <label data-i18n="goal">Weight Loss Goal</label>
+          <input type="number" id="goal" min="1" max="500" class="w-full p-1 rounded bg-green-700">
+        </div>
+      </div>
+      <button id="calculate" class="mt-4 p-2 rounded bg-green-600 w-full font-bold" data-i18n="calculate">Calculate</button>
+    </div>
+
+    <div id="results"></div>
+
+  </main>
+
+  <footer class="mt-8 text-center">
+    <p>⚡ Powered by Walkiebait • <a href="https://www.instagram.com/ruben_vafu" target="_blank" class="accent">@ruben_vafu</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
